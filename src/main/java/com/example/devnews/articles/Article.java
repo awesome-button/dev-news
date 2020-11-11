@@ -2,31 +2,24 @@ package com.example.devnews.articles;
 
 import javax.persistence.*;
 
-//@Entity
-//@Table(name="articles")
+@Entity
+@Table(name="articles")
 public class Article {
 
-//    @Column(columnDefinition = "TEXT")
-    String title;
+    @Column(columnDefinition = "TEXT")
+    private String title;
 
-//    @Column(columnDefinition = "TEXT")
-    String body;
+    @Column(columnDefinition = "TEXT")
+    private String body;
 
-//    @Column(columnDefinition = "TEXT")
-    String authorName;
+    @Column(columnDefinition = "TEXT")
+    private String authorName;
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-//    public Article() {}
-
-    public Article(String title, String body, String authorName, Long id) {
-        this.title = title;
-        this.body = body;
-        this.authorName = authorName;
-        this.id = id;
-    }
+    public Article() {}
 
     public String getTitle() {
         return title;
@@ -49,7 +42,7 @@ public class Article {
     }
 
     public void setBody(String body) {
-        this.title = body;
+        this.body = body;
     }
 
     public void setAuthorName(String authorName) {

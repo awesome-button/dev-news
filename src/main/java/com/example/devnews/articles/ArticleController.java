@@ -4,16 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/articles")
 public class ArticleController {
 
+    @Autowired
     ArticleService articleService;
-
-    public ArticleController() {
-        articleService = new ArticleService();
-    }
 
     @GetMapping("")
     public List<Article> getAll() {
@@ -21,7 +19,7 @@ public class ArticleController {
     }
 
     @GetMapping("/{id}")
-    public Article getById(@PathVariable Long id) {
+    public Optional<Article> getById(@PathVariable Long id) {
         return articleService.getById(id);
     }
 
@@ -35,8 +33,8 @@ public class ArticleController {
         articleService.delete(id);
     }
 
-    @PutMapping("/{id}")
-    public Article update(@PathVariable Long id, @RequestBody Article updArticle) {
-        return articleService.update(id, updArticle);
+    @PutMapping("")
+    public Article update(@RequestBody Article updArticle) {
+        return articleService.update(updArticle);
     }
 }
