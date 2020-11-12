@@ -1,6 +1,9 @@
 package com.example.devnews.articles;
 
+import com.example.devnews.comments.Comment;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="articles")
@@ -18,6 +21,9 @@ public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+
+    @OneToMany
+    private List<Comment> comments;
 
     public Article() {}
 
