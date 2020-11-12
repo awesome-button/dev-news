@@ -10,13 +10,6 @@ import java.util.Optional;
 public class ArticleService {
     @Autowired
     ArticleRepo repository;
-//    List<Article> articles;
-
-//    public ArticleService() {
-//        articles = new ArrayList<>();
-//        articles.add(new Article("Google Play Store new feature", "Google’s latest Play Store feature helps users compare apps", "Ryan Daws"));
-//        articles.add(new Article("code overload", "51% of devs say they’re dealing with 100x more code than 10 years ago\n", "Ryan Daws"));
-//    }
 
     public List<Article> getAll() {
         return repository.findAll();
